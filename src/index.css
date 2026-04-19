@@ -1,0 +1,111 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 220 20% 6%;
+    --foreground: 45 30% 92%;
+    --card: 220 18% 9%;
+    --card-foreground: 45 30% 92%;
+    --border: 220 15% 16%;
+    --input: 220 15% 12%;
+    --primary: 43 89% 54%;
+    --primary-foreground: 220 20% 6%;
+    --secondary: 220 15% 14%;
+    --secondary-foreground: 45 20% 75%;
+    --muted: 220 15% 12%;
+    --muted-foreground: 220 10% 50%;
+    --accent: 43 89% 54%;
+    --accent-foreground: 220 20% 6%;
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 100%;
+    --ring: 43 89% 54%;
+    --radius: 0.5rem;
+    --success: 142 71% 45%;
+    --warning: 38 92% 50%;
+    --danger: 0 72% 51%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Inter', sans-serif;
+  }
+  h1, h2, h3 {
+    font-family: 'Playfair Display', serif;
+  }
+}
+
+@layer utilities {
+  .gold-gradient {
+    background: linear-gradient(135deg, #f59e0b 0%, #d97706 50%, #92400e 100%);
+  }
+  .text-gold {
+    color: #f59e0b;
+  }
+  .border-gold {
+    border-color: #f59e0b;
+  }
+  .glow-gold {
+    box-shadow: 0 0 20px rgba(245, 158, 11, 0.3), 0 0 60px rgba(245, 158, 11, 0.1);
+  }
+}
+
+/* Animated score ring */
+.score-ring {
+  transform: rotate(-90deg);
+  transform-origin: 50% 50%;
+}
+
+.score-ring-circle {
+  transition: stroke-dashoffset 1.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Fade in animation */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.6s ease forwards;
+}
+
+.animate-fade-in-up-delay-1 { animation-delay: 0.1s; opacity: 0; animation-fill-mode: forwards; }
+.animate-fade-in-up-delay-2 { animation-delay: 0.2s; opacity: 0; animation-fill-mode: forwards; }
+.animate-fade-in-up-delay-3 { animation-delay: 0.3s; opacity: 0; animation-fill-mode: forwards; }
+.animate-fade-in-up-delay-4 { animation-delay: 0.4s; opacity: 0; animation-fill-mode: forwards; }
+.animate-fade-in-up-delay-5 { animation-delay: 0.5s; opacity: 0; animation-fill-mode: forwards; }
+
+/* Shimmer loading */
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+.shimmer {
+  background: linear-gradient(90deg, hsl(220 18% 9%) 25%, hsl(220 15% 14%) 50%, hsl(220 18% 9%) 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+}
+
+/* Pulse dot */
+@keyframes pulseDot {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.5; transform: scale(0.8); }
+}
+
+.pulse-dot {
+  animation: pulseDot 1s ease-in-out infinite;
+}
